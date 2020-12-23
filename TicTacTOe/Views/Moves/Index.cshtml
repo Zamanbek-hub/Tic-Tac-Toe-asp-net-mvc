@@ -1,0 +1,51 @@
+﻿@model IEnumerable<TicTacTOe.Models.App.Move>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Game.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Xcor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ycor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Timstamp)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Game.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Xcor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ycor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Timstamp)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MoveId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MoveId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MoveId })
+        </td>
+    </tr>
+}
+
+</table>
